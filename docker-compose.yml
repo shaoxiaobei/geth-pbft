@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  vp0:
+    image: gethpbft/test:new
+    container_name: vp0
+    env_file:
+      - pathh.env
+    working_dir: /root/pbft/signer0
+    command: geth --datadir ./data --networkid 55661 --pbftid 0 --port 2000 --unlock  d1ea4a9d42e3c7f888194ca3f0825f3796df131f --password "/root/password"
+  
+  vp1:
+    image: gethpbft/test:new
+    container_name: vp1
+    env_file:
+      - pathh.env
+    working_dir: /root/pbft/signer1
+    command: geth --datadir ./data --networkid 55661 --pbftid 1 --port 2001 --unlock  b3de3ba42520d7317a95d82ce6e9641b220866cb --password "/root/password"
+
+  vp2:
+    image: gethpbft/test:new
+    container_name: vp2
+    env_file:
+      - pathh.env
+    working_dir: /root/pbft/signer2
+    command: geth --datadir ./data --networkid 55661 --pbftid 2 --port 2002 --unlock  9f65d8bad6b3393697a0c558d526a70c56f1ed61 --password "/root/password"
+
+  vp3:
+    image: gethpbft/test:new
+    container_name: vp3
+    env_file:
+      - pathh.env
+    working_dir: /root/pbft/signer3
+    command: geth --datadir ./data--networkid 55661 --pbftid 3 --port 2003 --unlock  142fbe8350b36b1475c0ff3c41ca55120b23b156 --password "/root/password"
